@@ -6,4 +6,4 @@ Just clone this repo or download the zip file, open your favorite terminal windo
 
 Navigate to the folder where you cloned or saved your extracted zip files and type "npm install" to install the required dependencies.
 
-Type in "node Hangman-CLI.js" and prepare to be blown away by the exhilirating mediocrity of this :**awesome**_ game
+Type in "node Hangman-CLI.js" and prepare to be blown away by the exhilirating mediocrity of this _**awesome**_ game

@@ -1,0 +1,27 @@
+{
+  "name": "hangman-cli",
+  "version": "1.0.0",
+  "description": "A simple game of hangman using the command line interface.",
+  "main": "Hangman_CLI.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Blitz72/Hangman-CLI.git"
+  },
+  "keywords": [
+    "hangman",
+    "cli",
+    "javascript"
+  ],
+  "author": "David Bauer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Blitz72/Hangman-CLI/issues"
+  },
+  "homepage": "https://github.com/Blitz72/Hangman-CLI#readme",
+  "dependencies": {
+    "inquirer": "^5.0.0"
+  }
+}

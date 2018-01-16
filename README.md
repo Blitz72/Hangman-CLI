@@ -11,4 +11,4 @@ A friendly command line interface game of Hangman.  No ghastly and offensive gal
 
 * Type `"npm install"` to install the required dependencies.
 
-* Then type in `"node hangman.js"` into the command line and prepare to be *__blown away__* by the *unparalleled mediocrity* of this _**awesome**_ game!
+* Then type `"node hangman.js"` into the command line and prepare to be *__blown away__* by the *unparalleled mediocrity* of this _**awesome**_ game!

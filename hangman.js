@@ -7,6 +7,9 @@ var game = {
 							"DEANNA TROI", "TASHA YAR", "BEVERLY CRUSHER", "LT. COMMANDER WORF", "U.S.S. RELIANT",
 							"CAPTAIN JAMES TIBERIAS KIRK", "MR. SPOCK", "HIKARU SULU", "MONTGOMERY SCOTT",
 							"LEONARD MCCOY", "NYOTA UHURA", "ADMIRAL PAVEL CHECKOV", "RED SHIRT GUY"],
+	alphabet: ["a", "A", "b", "B", "c", "C", "d", "D", "e", "E", "f", "F", "g", "G", "h", "H", "i", "I",
+							"j", "J", "k", "K", "l", "L", "m", "M", "n", "N", "o", "O", "p", "P", "q", "Q", "r", "R",
+							"s", "S", "t", "T", "u", "U", "v", "V", "w", "W", "x", "X", "y", "Y", "z", "Z"],
 	lives: 0,
 	currentWord: "",
 
@@ -60,9 +63,17 @@ var game = {
 			.prompt([
 				{
 			    type: "input",
-			    message: "Type in a letter:",
-			    name: "guess"
-			  }
+			    message: "Type in a letter and hit 'Enter':",
+			    name: "guess",
+			    validate: function(input) {
+			    	var done = this.async();
+				  	if (game.alphabet.indexOf(input) < 0) {
+				  		done("Please enter a letter.");
+				  		return;
+				  	}
+				  	done(null, true);
+				  }
+				}
 	    ])
 	    .then(function(answer) {
 	    	var guess = answer.guess.toUpperCase();
@@ -74,7 +85,7 @@ var game = {
 	    	if (!found) {
 	    		game.lives--;
 	    		if (game.lives === 0) {
-	    			console.log("Sorry, the answer was '" + game.currentWord.word + "'");
+	    			console.log("\nSorry, the answer was '" + game.currentWord.word + "'\n");
 	    			game.newGame();
 	    		} else {
 	    			console.log("Try again!");

@@ -1,49 +1,73 @@
 var Letter = require("./Letter.js");
 
-// var wordList = ["Jean-Luc Picard", "Commander Data", "William Riker", "Geordi LaForge", "USS Enterprise",
-// 								"Deanna Troi", "Tasha Yar", "Beverly Crusher", "Miles O'Brien", "Lt. Commander Worf", 
-// 								"USS Reliant", "Captain James Tiberias Kirk", "Mr. Spock", "Hikaru Sulu", "Montgomery Scott",
-// 								"Leonard McCoy", "Nyota Uhura", "Admiral Pavel Checkov"];
-
-// var indexer = Math.floor(Math.random() * wordList.length);
-
 function Word(wrd) {
 	this.word = wrd;
-	this.lettersGuessed = [];
+	this.letters = [];
 	this.found = false;
+	this.guessed = [];
+
+	this.isWordFound = function() {
+		var counter = 0;
+		// console.log(this.letters);
+		for (var i = 0; i < this.letters.length; i++) {
+			if (this.letters[i].show === true) {
+				counter++;
+			}
+		}
+		// console.log("counter: ", counter);
+		// console.log("letters.length: ", this.letters.length);
+		if (counter === this.letters.length) {
+			this.found = true;
+		} else {
+			this.found = false;
+		}
+		// console.log("found?: ", this.found);
+	}
 }
 
-Word.prototype.printWord = function() {
-	this.guessedWord = "";
-	for (var i = 0; i < this.currentWord.length; i++) {
-		var currentLetter = this.currentWord[i];
-		console.log(this.lettersGuessed.indexOf(currentLetter));
-		if (this.lettersGuessed.indexOf(currentLetter) >= 0) {
-			this.guessedWord += currentLetter + " ";
-		} else if (currentLetter === " ") {
-			this.guessedWord += "  ";
-		} else if (this.currentWord[i] === ".") {
-			this.guessedWord += ". ";
-		} else if (this.currentWord[i] === "'") {
-			this.guessedWord += "' ";
-		} else if (this.currentWord[i] === "-") {
-			this.guessedWord += "- ";
-		} else {
-			this.guessedWord += "_ ";
+Word.prototype.getLetters = function() {
+	for (var i = 0; i < this.word.length; i++) {
+		var newLetter = new Letter(this.word[i]);
+		this.letters.push(newLetter);
+	}
+}
+
+Word.prototype.checkLetter = function(guess) {
+	var letterFound = false;
+	for (var i = 0; i < this.letters.length; i++) {
+		if (this.letters[i].letter === guess) {
+			this.letters[i].show = true;
+			letterFound = true;
 		}
 	}
-	console.log(this.guessedWord);
+	return letterFound;
 }
 
-Word.prototype.printWordFull = function() {
-	for (var i = 0; i < this.currentWord.length; i++) {
-		this.guessedWord += this.currentWord[i] + " ";
+Word.prototype.isWordFound = function() {
+	var counter = 0;
+	// console.log(this.letters);
+	for (var i = 0; i < this.letters.length; i++) {
+		if (this.letters[i].show === true) {
+			counter++;
+		}
 	}
+	// console.log("counter: ", counter);
+	// console.log("letters.length: ", this.letters.length);
+	if (counter === this.letters.length) {
+		this.found = true;
+	} else {
+		this.found = false;
+	}
+	// console.log("found?: ", this.found);
 }
 
-// Word.prototype.printWord = function(guess) {
-// 	for (var i = 0; i < this.currentWord.length; i++) {
-// 		if (this.currentWord[i] ===)
-// }
+Word.prototype.renderWord = function() {
+	var guessedWord	= "";
+	// console.log(this.letters);
+	for (var i = 0; i < this.letters.length; i++) {
+		guessedWord	+= this.letters[i].showLetter();
+	}
+	console.log("\n" + guessedWord + "\n");
+}
 
 module.exports = Word;

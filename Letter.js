@@ -1,25 +1,24 @@
 function Letter(ltr) {
-	// this.alphabet = ["a", "A", "b", "B", "c", "C", "d", "D", "e", "E", "f", "F", "g", "G", "h", "H", "i", "I",
-	// 								"j", "J", "k", "K", "l", "L", "m", "M", "n", "N", "o", "O", "p", "P", "q", "Q", "r", "R",
-	// 								"s", "S", "t", "T", "u", "U", "v", "V", "w", "W", "x", "X", "y", "Y", "z", "Z"];
-	// this.lettersGuessed = [];
 	this.letter = ltr;
-	this.guessed = false;
-	this.checkLetter = function() {
-		var char = "";
-		if (this.guessed) {
-			char = ltr + " ";
+	this.show = false;
+
+	this.showLetter = function() {
+		if (this.letter === " ") {
+			this.show = true;
+			return "  ";
+		} else if (this.letter === ".") {
+			this.show = true;
+			return ". ";
+		} else if (this.letter === "-") {
+			this.show = true;
+			return "- ";
+		} else if (this.show) {
+			return this.letter + " ";
 		} else {
-			char = "_ "
+			return "_ ";
 		}
-		return char;
 	}
 }
-
-// Letter.prototype.addLetter = function(guess) {
-// 	this.lettersGuessed.push(guess);
-// 	this.lettersGuessed.push(guess.toUpperCase());
-// }
 
 module.exports = Letter;
 	

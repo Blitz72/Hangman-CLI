@@ -6,23 +6,6 @@ function Word(wrd) {
 	this.found = false;
 	this.guessed = [];
 
-	this.isWordFound = function() {
-		var counter = 0;
-		// console.log(this.letters);
-		for (var i = 0; i < this.letters.length; i++) {
-			if (this.letters[i].show === true) {
-				counter++;
-			}
-		}
-		// console.log("counter: ", counter);
-		// console.log("letters.length: ", this.letters.length);
-		if (counter === this.letters.length) {
-			this.found = true;
-		} else {
-			this.found = false;
-		}
-		// console.log("found?: ", this.found);
-	}
 }
 
 Word.prototype.getLetters = function() {
@@ -68,6 +51,24 @@ Word.prototype.renderWord = function() {
 		guessedWord	+= this.letters[i].showLetter();
 	}
 	console.log("\n" + guessedWord + "\n");
+}
+
+Word.prototype.isWordFound = function() {
+	var counter = 0;
+	// console.log(this.letters);
+	for (var i = 0; i < this.letters.length; i++) {
+		if (this.letters[i].show === true) {
+			counter++;
+		}
+	}
+	// console.log("counter: ", counter);
+	// console.log("letters.length: ", this.letters.length);
+	if (counter === this.letters.length) {
+		this.found = true;
+	} else {
+		this.found = false;
+	}
+	// console.log("found?: ", this.found);
 }
 
 module.exports = Word;

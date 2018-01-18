@@ -6,7 +6,7 @@ var game = {
 	wordList: ["CAPTAIN JEAN-LUC PICARD", "COMMANDER DATA", "WILLIAM RIKER", "GEORDI LAFORGE", "U.S.S. ENTERPRISE",
 							"DEANNA TROI", "TASHA YAR", "BEVERLY CRUSHER", "LT. COMMANDER WORF", "U.S.S. RELIANT",
 							"CAPTAIN JAMES TIBERIAS KIRK", "MR. SPOCK", "HIKARU SULU", "MONTGOMERY SCOTT",
-							"LEONARD MCCOY", "NYOTA UHURA", "ADMIRAL PAVEL CHECKOV", "RED SHIRT GUY"],
+							"DOCTOR LEONARD MCCOY", "NYOTA UHURA", "ADMIRAL PAVEL CHECKOV", "RED SHIRT GUY"],
 	alphabet: ["a", "A", "b", "B", "c", "C", "d", "D", "e", "E", "f", "F", "g", "G", "h", "H", "i", "I",
 							"j", "J", "k", "K", "l", "L", "m", "M", "n", "N", "o", "O", "p", "P", "q", "Q", "r", "R",
 							"s", "S", "t", "T", "u", "U", "v", "V", "w", "W", "x", "X", "y", "Y", "z", "Z"],
